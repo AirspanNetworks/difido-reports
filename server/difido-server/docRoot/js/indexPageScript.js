@@ -302,7 +302,7 @@ function downloadSelectedAsZipped(table) {
     for (var i = 0; i < numOfSelected; i++) {
         var id = data[i][0];
         url= 'api/reports/' + id;
-        downloadURL(url, i);
+        downloadFileFromUrl(url, i);
         // Unselecting all elements
         // Everything was deleted, we can reload the table.
     }
@@ -310,8 +310,8 @@ function downloadSelectedAsZipped(table) {
    $(".selected").removeClass("selected");
 }
 
-function downloadURL(url, i ){
-  var hiddenIFrameID = 'hiddenDownloader' + i;
+function downloadFileFromUrl(url, index ){
+  var hiddenIFrameID = 'hiddenDownloader' + index;
   var iframe = document.createElement('iframe');
   iframe.id = hiddenIFrameID;
   iframe.style.display = 'none';
